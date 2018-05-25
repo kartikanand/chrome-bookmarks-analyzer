@@ -1,0 +1,6 @@
+{
+    "name": "Bookmark Stats",
+    "version": "1.0",
+    "description": "Get statistics on your extensions",
+    "manifest_version": 2
+}
