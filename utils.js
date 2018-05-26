@@ -17,30 +17,5 @@ function removeProtocol(url) {
     return url_mod;
 }
 
-function getBookmarks() {
-    chrome.bookmarks.getTree(rootNode => {
-        let frontier = rootNode;
-        while (frontier.length) {
-            let nxt = [];
-            for (let node of frontier) {
-                if ('children' in node) {
-                    if (node.title) {
-                        console.log(node.title);
-                    }
-
-                    for (let child of node.children) {
-                        if ('children' in child) {
-                            nxt.push(child);
-                        }
-                    }
-                }
-            }
-
-            frontier = nxt;
-        }
-    });
-}
-
-exports.removeProtocol = removeProtocol;
-exports.getWebsiteName = getWebsiteName;
-
+//exports.removeProtocol = removeProtocol;
+//exports.getWebsiteName = getWebsiteName;
