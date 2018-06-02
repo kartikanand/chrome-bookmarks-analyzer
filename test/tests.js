@@ -17,17 +17,24 @@ describe('removeProtocol', () => {
 });
 
 describe('getWebsiteName', () => {
-    it('should get name from url with www', () => {
+    it('should get name from url', () => {
         assert.equal(
             utils.getWebsiteName('http://www.example.com'),
-            'example'
+            'www.example.com'
         );
     });
 
-    it('should get name from url without www', () => {
+    it('should get name from url', () => {
         assert.equal(
-            utils.getWebsiteName('http://example.com'),
-            'example'
+            utils.getWebsiteName('http://example.com/abc'),
+            'example.com'
+        );
+    });
+
+    it('should get name from url', () => {
+        assert.equal(
+            utils.getWebsiteName('https://example.com/abc/asd?'),
+            'example.com'
         );
     });
 

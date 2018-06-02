@@ -1,14 +1,15 @@
-let BinaryHeap = require('./heap.js');
+//let BinaryHeap = require('./heap.js');
 
 function getWebsiteName(url) {
     let url_mod = url.toLowerCase();
     url_mod = removeProtocol(url_mod);
 
-    const url_split = url_mod.split('.');
-    if (url_mod.indexOf('www.') !== -1) {
-        return url_split[1];
+    if (url_mod.indexOf('/') !== -1) {
+        return url_mod.split('/')[0];
+    } else if (url_mod.indexOf('?') !== -1) {
+        return url_mod.split('?')[0];
     } else {
-        return url_split[0];
+        return url_mod;
     }
 }
 
@@ -52,7 +53,6 @@ function get_top_k(bookmarksMap, k) {
     return top_k;
 }
 
-exports.removeProtocol = removeProtocol;
-exports.getWebsiteName = getWebsiteName;
-exports.get_top_k = get_top_k;
-
+//exports.removeProtocol = removeProtocol;
+//exports.getWebsiteName = getWebsiteName;
+//exports.get_top_k = get_top_k;

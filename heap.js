@@ -118,4 +118,4 @@ BinaryHeap.prototype = {
   }
 };
 
-module.exports = BinaryHeap;
+//module.exports = BinaryHeap;
