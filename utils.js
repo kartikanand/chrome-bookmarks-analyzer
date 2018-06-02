@@ -1,9 +1,11 @@
+let BinaryHeap = require('./heap.js');
+
 function getWebsiteName(url) {
     let url_mod = url.toLowerCase();
     url_mod = removeProtocol(url_mod);
 
     const url_split = url_mod.split('.');
-    if (url_mod.indexOf('www') !== -1) {
+    if (url_mod.indexOf('www.') !== -1) {
         return url_split[1];
     } else {
         return url_split[0];
@@ -17,5 +19,40 @@ function removeProtocol(url) {
     return url_mod;
 }
 
-//exports.removeProtocol = removeProtocol;
-//exports.getWebsiteName = getWebsiteName;
+function get_top_k(bookmarksMap, k) {
+    const minHeap = new BinaryHeap(function (bookmark) {
+        return bookmarksMap.get(bookmark);
+    });
+
+    const it = bookmarksMap.keys();
+    let value = it.next().value;
+    while (value && k) {
+        minHeap.push(value);
+        value = it.next().value;
+        k--;
+    }
+
+    while(value) {
+        const top = minHeap.top();
+        const curr = value;
+        value = it.next().value;
+
+        if (bookmarksMap.get(top) < bookmarksMap.get(curr)) {
+            minHeap.pop();
+            minHeap.push(curr);
+        }
+    }
+
+    let top_k = [];
+    while (minHeap.size()) {
+        const bookmark = minHeap.pop();
+        top_k.push(bookmark);
+    }
+
+    return top_k;
+}
+
+exports.removeProtocol = removeProtocol;
+exports.getWebsiteName = getWebsiteName;
+exports.get_top_k = get_top_k;
+

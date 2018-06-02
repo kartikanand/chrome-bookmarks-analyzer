@@ -17,9 +17,9 @@ function getBookmarks() {
                             const website_name = getWebsiteName(url);
 
                             if (website_name in hmap) {
-                                hmap[website_name]++;
+                                hmap.set(website_name, hmap.get(website_name)+1);
                             } else {
-                                hmap[website_name] = 1;
+                                hmap.set(website_name, 1);
                             }
                         }
                     }
@@ -38,6 +38,8 @@ function getBookmarks() {
 document.getElementById('js-get-bookmarks').addEventListener('click', () => {
     getBookmarks()
     .then((hmap) => {
-        console.log(hmap);
+        const top_k = get_top_k(hmap, 10);
+
+        console.log(top_k);
     });
 });
