@@ -1,0 +1,29 @@
+{
+  "name": "chrome-bookmarks-analyzer",
+  "version": "1.0.0",
+  "description": "A Chrome extension to analyze your bookmarks",
+  "main": "chart.js",
+  "browserslist": [
+    "last 1 Chrome version"
+  ],
+  "dependencies": {
+    "chart.js": "^2.9.3",
+    "heap-js": "^2.1.2",
+    "normalize-url": "^4.5.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "build": "parcel build popup.js && cp manifest.json dist/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kartikanand/chrome-bookmarks-analyzer.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/kartikanand/chrome-bookmarks-analyzer/issues"
+  },
+  "homepage": "https://github.com/kartikanand/chrome-bookmarks-analyzer#readme"
+}
