@@ -7,7 +7,7 @@
     "last 1 Chrome version"
   ],
   "dependencies": {
-    "chart.js": "^2.9.3",
+    "chart.js": "^2.9.4",
     "heap-js": "^2.1.2",
     "normalize-url": "^4.5.0"
   },
